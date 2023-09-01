@@ -2,7 +2,7 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 
 export async function getAllPosts(): Promise<{slug: string, title: string}[]> {
-    const ctx = require.context("../_posts", false, /\.md/);
+    const ctx = (require as NextJsRequire).context("../_posts", false, /\.md/);
     const posts = [];
     for (const key of ctx.keys()){
         const post = key.slice(2);
