@@ -19,7 +19,6 @@ jobs:
         with:
           node-version: 14.x
       - run: |
-          cd ada525-blog
           npm i
           npm run build
       - name: Next Pages
