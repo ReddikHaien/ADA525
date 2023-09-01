@@ -45,7 +45,7 @@ export default async function Page({
     // var text = await response.text();
     const text = data[id] as string | undefined;
     if (!text){
-        throw new Error();
+        return <div>No post name {id}</div>
     }
     const meta = matter(text);
     const content = marked(meta.content);
