@@ -1,0 +1,11 @@
+/* contents of app.css */
+.big {
+    font-size: 30px;
+  }
+  .blue {
+    color: blue;
+  }
+  .giant-button {
+    font-size: 24px;
+    font-weight: bold;
+  }
