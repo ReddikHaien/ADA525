@@ -1,0 +1,55 @@
+
+$paragraph-size: 16px;
+$h6-size: $paragraph-size*1.333;
+$h5-size: $h6-size*1.333;
+$h4-size: $h5-size*1.333;
+$h3-size: $h4-size*1.333;
+$h2-size: $h3-size*1.333;
+$h1-size: $h2-size*1.333;
+
+
+html, body{
+    margin: 0;
+    padding: 0;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.main_view{
+    width: 80%;
+    margin: auto;
+    height: 100vh;
+    background-color: #efe1ce;
+    padding-top: 20px;
+}
+
+.title{
+    margin-bottom: 1em;
+}
+
+.title h1{
+    font-size: $h3-size;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.5em;
+    padding-bottom: 15px;
+    position: relative;
+    margin-bottom: 0;
+    margin-left: 3%;
+}
+
+.title div{
+    width: 90%;
+    height: 0.2em;
+    margin-left: 5%;
+    background-color: #a08c83;
+}
+
+.paragraph{
+    font-size: $paragraph-size;
+    margin-bottom: 1.5em;
+    width: 90%;
+    margin-left: 5%;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.5em;
+}
