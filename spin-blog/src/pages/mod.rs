@@ -10,7 +10,7 @@ pub fn Home() -> Html{
     let posts = information::posts()
     .iter()
     .map(|(name, title)| html! {
-        <a href={ format!("posts/{}",name) }> { title } </a>
+        <a href={ format!("#/posts/{}",name) }> { title } </a>
     });
 
     html! {

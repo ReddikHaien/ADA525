@@ -1,6 +1,6 @@
 pub mod components;
 pub mod pages;
-use pages::Home;
+use pages::{Home, post::Posts};
 use yew_router::prelude::*;
 use yew::prelude::*;
 
@@ -13,18 +13,25 @@ enum Route{
 }
 
 fn switch(route: Route) -> Html{
-    match route {
-        Route::Home => html! { <Home /> },
-        Route::Post { id } => todo!(),
+    html! {
+        <div class={classes!("main_view")}>
+        {
+            match route {
+                Route::Home => html! { <Home /> },
+                Route::Post { id } => html!{ <Posts id={ id } /> }
+            }
+        }
+        </div>
     }
+    
 }
 
 #[function_component]
 fn App () -> Html {
     html! {
-        <BrowserRouter>
+        <HashRouter>
             <Switch<Route> render={switch} />
-        </BrowserRouter>
+        </HashRouter>
     }
 }
 

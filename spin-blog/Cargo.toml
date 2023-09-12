@@ -7,5 +7,6 @@ edition = "2021"
 
 [dependencies]
 comrak = "0.18.0"
+gloo-net = "0.4.0"
 yew = { version = "0.20.0", features = ["csr"] }
 yew-router = "0.17.0"

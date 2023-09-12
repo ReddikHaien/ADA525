@@ -13,7 +13,7 @@ fn main(){
 
     writeln!(file, "pub fn posts() -> &'static [(&'static str, &'static str)]{{ &[").unwrap();
     for path in paths{
-        writeln!(file, "{}",path).unwrap();
+        writeln!(file, "{},",path).unwrap();
     }
 
     writeln!(file, "]}}").unwrap();
