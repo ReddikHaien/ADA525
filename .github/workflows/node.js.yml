@@ -25,14 +25,9 @@ jobs:
         with:
           version: 'latest'
       
-      - name: Go to directory
-        run: cd ./spin-blog/
-
       - name: Run trunk
+        working-directory: ./spin-blog
         run: trunk build --release
-      
-      - name: Go back to root
-        run: cd ..
 
       - name: Deploy
         uses: s0/git-publish-subdir-action@develop
