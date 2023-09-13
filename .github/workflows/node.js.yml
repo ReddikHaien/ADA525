@@ -21,13 +21,18 @@ jobs:
         with:
           toolchain: stable
       
-      - uses: actions-rs/cargo@v1
-        with: 
-          command: install
-          args: --locked trunk
+      - uses: jetli/trunk-action@v0.4.0
+        with:
+          version: 'latest'
       
+      - name: Go to directory
+        run: cd ./spin-blog/
+
       - name: Run trunk
         run: trunk build --release
+      
+      - name: Go back to root
+        run: cd ..
 
       - name: Deploy
         uses: s0/git-publish-subdir-action@develop
