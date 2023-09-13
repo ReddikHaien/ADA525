@@ -38,4 +38,4 @@ jobs:
           REPO: self
           BRANCH: gh-pages
           FOLDER: spin-blog/dist
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.access_token}}
