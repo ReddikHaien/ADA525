@@ -24,7 +24,7 @@ jobs:
       - uses: actions-rs/cargo@v1
         with: 
           command: install
-          args: --locked trunk --release
+          args: --locked trunk
       
       - name: Run trunk
         run: trunk build --release
