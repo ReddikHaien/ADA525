@@ -1,10 +1,10 @@
 use std::{fmt::format, cell::RefCell};
 
-use comrak::{Arena, ComrakOptions, arena_tree::Node, nodes::Ast};
+use comrak::{Arena, ComrakOptions, arena_tree::Node, nodes::{Ast, NodeHtmlBlock}};
 use gloo_net::http::Request;
 use yew::{prelude::*, suspense::{use_future, SuspensionResult, Suspension}};
 
-use crate::{components::{title::Title, paragraph::Paragraph}, information};
+use crate::{components::{title::Title, paragraph::Paragraph, raw_html::RawHtml}, information};
 
 #[derive(PartialEq, Properties)]
 pub struct PostProps{
@@ -58,14 +58,42 @@ pub fn parse_markdown<'a>(node: &'a Node<'a, RefCell<Ast>>) -> Html{
         },
         comrak::nodes::NodeValue::FrontMatter(_) => todo!(),
         comrak::nodes::NodeValue::BlockQuote => todo!(),
-        comrak::nodes::NodeValue::List(_) => todo!(),
-        comrak::nodes::NodeValue::Item(_) => todo!(),
+        comrak::nodes::NodeValue::List(i) => {
+            match i.list_type{
+                comrak::nodes::ListType::Bullet => {
+                    html!{
+                        <ul>
+                            {for children}
+                        </ul>
+                    }
+                },
+                comrak::nodes::ListType::Ordered => {
+                    html!{
+                        <ol>
+                            {for children}
+                        </ol>
+                    }
+                },
+            }
+        },
+        comrak::nodes::NodeValue::Item(i) => {
+
+            html!{
+                <li>
+                    {for children}
+                </li>
+            }
+        },
         comrak::nodes::NodeValue::DescriptionList => todo!(),
         comrak::nodes::NodeValue::DescriptionItem(_) => todo!(),
         comrak::nodes::NodeValue::DescriptionTerm => todo!(),
         comrak::nodes::NodeValue::DescriptionDetails => todo!(),
         comrak::nodes::NodeValue::CodeBlock(_) => todo!(),
-        comrak::nodes::NodeValue::HtmlBlock(_) => todo!(),
+        comrak::nodes::NodeValue::HtmlBlock(i) => {
+            html!{
+                <RawHtml content={i.literal.clone()} inline={false}/>
+            }
+        },
         comrak::nodes::NodeValue::Paragraph => {
             html!{
                 <Paragraph>
@@ -90,9 +118,9 @@ pub fn parse_markdown<'a>(node: &'a Node<'a, RefCell<Ast>>) -> Html{
         },
         comrak::nodes::NodeValue::FootnoteDefinition(a) => {
             html! {
-                <div>
+                <Paragraph>
                 {"FootNote: "}{a}
-                </div>
+                </Paragraph>
             }
         },
         comrak::nodes::NodeValue::Table(_) => todo!(),
@@ -109,17 +137,48 @@ pub fn parse_markdown<'a>(node: &'a Node<'a, RefCell<Ast>>) -> Html{
         },
         comrak::nodes::NodeValue::LineBreak => todo!(),
         comrak::nodes::NodeValue::Code(_) => todo!(),
-        comrak::nodes::NodeValue::HtmlInline(_) => todo!(),
-        comrak::nodes::NodeValue::Emph => todo!(),
-        comrak::nodes::NodeValue::Strong => todo!(),
-        comrak::nodes::NodeValue::Strikethrough => todo!(),
+        comrak::nodes::NodeValue::HtmlInline(i) => {
+            html!{
+                <RawHtml content={i.clone()} inline={true}/>
+            }
+        }
+        comrak::nodes::NodeValue::Emph => {
+            html! {
+                <em>
+                { for children }
+                </em>
+            }
+        },
+        comrak::nodes::NodeValue::Strong => {
+            html!{
+                <strong>
+                    { for children }
+                </strong>
+            }
+        },
+        comrak::nodes::NodeValue::Strikethrough => {
+            html!{
+                <del>
+                    { for children }
+                </del>
+            }
+        },
         comrak::nodes::NodeValue::Superscript => todo!(),
-        comrak::nodes::NodeValue::Link(_) => todo!(),
-        comrak::nodes::NodeValue::Image(_) => todo!(),
+        comrak::nodes::NodeValue::Link(l) => {
+            html!{
+                <a href={l.url.clone()}>
+                    { &l.title } {for children }
+                </a>
+            }
+        },
+        comrak::nodes::NodeValue::Image(i) => {
+            html!{
+                <img src={i.url.clone()} alt={i.title.clone()}/>
+            }
+        },
         comrak::nodes::NodeValue::FootnoteReference(_) => todo!(),
     }
 }
-
 
 #[hook]
 fn use_post(id: String) -> SuspensionResult<String>{

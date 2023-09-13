@@ -17,7 +17,8 @@ html, body{
 .main_view{
     width: 80%;
     margin: auto;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     background-color: #efe1ce;
     padding-top: 20px;
 }
@@ -52,4 +53,10 @@ html, body{
     font-weight: 500;
     letter-spacing: 0;
     line-height: 1.5em;
+}
+
+
+.image{
+    width: 20%;
+    margin: auto;
 }
