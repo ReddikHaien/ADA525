@@ -1,0 +1,2 @@
+GET https://reddikhaien.github.io/ADA525/posts/assignment00
+Accept: text/plain
