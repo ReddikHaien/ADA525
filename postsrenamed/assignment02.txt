@@ -1,8 +1,3 @@
----
-title: "Assignment 02: 3D design with movable parts."
-author: "Fredrik Eide Fluge"
-timestamp: "2023-09-12T20:37:00"
----
 
 Our second assignment consist of creating a 3d model in fusion 360. The model should ideally be as fabricated as possible, without needing extra components like screws and bearings(not a requirement though).
 
