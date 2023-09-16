@@ -196,7 +196,7 @@ fn use_post(id: String) -> SuspensionResult<String>{
 
 
 async fn load_post(id: String) -> Result<String, gloo_net::Error>{
-    let url = format!("posts-renamed/{}.txt",id);
+    let url = format!("postsrenamed/{}.txt",id);
     
     Request::get(&url)
     .send().await?

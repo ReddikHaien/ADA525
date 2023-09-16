@@ -1,2 +1,2 @@
-GET https://reddikhaien.github.io/ADA525/posts/assignment00
+GET https://reddikhaien.github.io/ADA525/postsrenamed/assignment00
 Accept: text/plain
