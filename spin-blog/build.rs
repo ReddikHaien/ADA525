@@ -53,6 +53,10 @@ fn get_post_names() -> Vec<String>{
             
             let mut body = String::new();
 
+            body.push_str("# ");
+            body.push_str(&name);
+            body.push('\n');
+
             for line in lines{
                 body.push_str(line);
                 body.push('\n');

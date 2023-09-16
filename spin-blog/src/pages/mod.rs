@@ -10,7 +10,9 @@ pub fn Home() -> Html{
     let posts = information::posts()
     .iter()
     .map(|(name, title)| html! {
-        <a href={ format!("#/posts/{}",name) }> { title } </a>
+        <li>
+            <a href={ format!("#/posts/{}",name) }> { title } </a>
+        </li>
     });
 
     html! {
@@ -19,9 +21,11 @@ pub fn Home() -> Html{
         <Paragraph>
             {"This is my blog for documenting the semester project for ADA 525."}
         </Paragraph>
-        {
-            for posts
-        }
+        <ul>
+            {
+                for posts
+            }
+        </ul>
     </>
     }
 }

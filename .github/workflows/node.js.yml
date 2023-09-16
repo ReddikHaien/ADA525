@@ -30,7 +30,7 @@ jobs:
       
       - name: Run Rust Build Script
         working-directory: ./spin-blog
-        run: cargo build
+        run: cargo build --release --target wasm32-unknown-unknown
 
       - name: Run trunk
         working-directory: ./spin-blog
