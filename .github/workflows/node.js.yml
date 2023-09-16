@@ -28,6 +28,10 @@ jobs:
         with:
           version: 'latest'
       
+      - name: Run Rust Build Script
+        working-directory: ./spin-blog
+        run: cargo build
+
       - name: Run trunk
         working-directory: ./spin-blog
         run: trunk build --release
