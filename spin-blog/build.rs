@@ -82,8 +82,8 @@ fn get_post_names() -> Vec<String>{
                 }
             }
 
-            fs::create_dir_all("./posts-renamed").unwrap();
-            fs::write(format!("./posts-renamed/{}.txt", name), body).unwrap();
+            fs::create_dir_all("./postsrenamed").unwrap();
+            fs::write(format!("./postsrenamed/{}.txt", name), body).unwrap();
         }
     }
     out
