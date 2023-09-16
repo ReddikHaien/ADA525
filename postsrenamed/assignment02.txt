@@ -1,3 +1,4 @@
+# assignment02
 
 Our second assignment consist of creating a 3d model in fusion 360. The model should ideally be as fabricated as possible, without needing extra components like screws and bearings(not a requirement though).
 
