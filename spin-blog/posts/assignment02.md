@@ -51,7 +51,6 @@ The original diameter of the axle and wheel was not big enough, resulting in the
 I only printed one wheel and axle the second time to test out if the new dimensions would work as expected. This only took about 40 minutes and the results where promising. I forgot to photograph the print process, but here is an image of the final wheel. The model was configured to use a layer height and base height of .2 mm with an infill of 10%.
 
 <img src="images/assignment02/test-wheel-print.png" alt="The sliced test wheel" class="image" />
-
 <img src="images/assignment02/car-wheel-test-print.JPG" alt="The test print of the wheel" class="image" />
 
 The car would take a whopping 14 hours to print. I therefore printed one of the back wheel mounts to test if the wheel would fit and spin freely. For this i used a lower layer height of .1 mm to try and make the model look a little smoother. Other than that the configuration remained the same
@@ -68,29 +67,23 @@ When i was done fidgeting with the test prints, I started printing out the remai
 I kept the same settings as with the mount, and the print took about 1 hour and 40 minutes. In hindsight i do regret not printing 4 wheels instead of 3, due to them looking 10 times nicer than the first test print.
 
 <img src="images/assignment02/remaining-wheels-print.png" alt="slice of remaining wheels" class="image"/>
-
 <img src="images/assignment02/remaining-wheels-in-progress.JPG" alt="remaining wheels in print" class="image"/>
-
 <img src="images/assignment02/all-wheels-ready.JPG" alt="all wheels." class="image" />
 
 Now that the wheels are ready it was time to print the hull itself. The original plan was to print the car upside down. This was due to the wheel mounts having potruding parts that was meant ot hold the axle in place. This resulted in a lot of overhang, which i tried to fix by using tree supports as seen here:
 
 <img src="images/assignment02/hull-bad-print.png" alt="bad slice of hull" class="image" />
-
 <img src="images/assignment02/bad-print-in-progress.JPG" alt="bad print of hull" class="image" />
 
 This hull kept coming loose from the build plate, and multiple times the supports would brake due to being to fragile. In the end, I ended up with cutting of the potruding parts under the car and putting it flat at its bottom. I also desided to use a raft to keep it at place and it appeared that this would stick troughout the night. 
 
 <img src="images/assignment02/hull-good-print.png" alt="good slice of hull" class="image"/>
-
 <img src="images/assignment02/hull-soon-finished.JPG" alt="hull soon finished" class="image" />
-
 <img src="images/assignment02/hull-finished-print.JPG" alt="hull finished" class="image" />
 
 Now that the car was finished printing, it was time to put it all together.
 
 <img src="images/assignment02/car-pre-assembled.JPG" alt="car parts" class="image" />
-
 <img src="images/assignment02/car-finished.JPG" alt="car finished" class="image" />
 
 
