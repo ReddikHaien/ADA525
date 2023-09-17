@@ -230,7 +230,13 @@ async fn load_post(id: String) -> Result<String, gloo_net::Error>{
 }
 
 fn read_attributes<'a>(source: &'a str) -> (HashMap<&'a str, &'a str>, &'a str){
+
+
     let mut attributes = HashMap::new();
+
+    if !source.starts_with("---"){
+        return (attributes, source);
+    }
 
     let mut index = 0;
     let mut reading_attributes = false;
