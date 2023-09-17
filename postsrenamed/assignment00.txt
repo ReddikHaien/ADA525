@@ -1,4 +1,8 @@
-# assignment00
+---
+title: "Assignment 00: Plan and Sketch"
+author: "Fredrik Eide Fluge"
+timestamp: "2023-09-01T18:04:00"
+---
 
 # Assignment 00: Plan and Sketch.
 
