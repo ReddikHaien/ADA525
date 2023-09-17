@@ -4,8 +4,6 @@ author: "Fredrik Eide Fluge"
 timestamp: "2023-09-01T18:04:00"
 ---
 
-# Assignment 00: Plan and Sketch.
-
 For my semester project I've decided to build a machine for knitting chinese finger traps. 
 
 A chinese finger trap is a toy used to trap a persons fingers. The mechanism behind the trap is the braided design, making it constrict when stretched. To relax the trap again, the ends needs to be pressed together. Even though many people know the finger trap as a toy from their childhood, the toy has many other used due to its unique behaviour. One good example is in orthopedics, where finger traps are used to keep a distal fracture stabil during repair [As seen here](https://www.youtube.com/watch?v=9QFZzajwiqI)
@@ -23,7 +21,7 @@ The initial idea for the machine is divided in two:
 The initial idea for the knitting mechanism is to have two rotating rings, one inner and one outer, and a collection of thread feeders. the rings will ocillate forwards and backwards in parallel and move the thread feeders between them. The result should then be that one halv of the thread feeders move clockwise while the other half moved counter clockwise,
 The movement is described as follows:
 
-<img width=500 src="assignment00/Initial-idea.png" alt="initial idea.">
+<img width=500 src="images/assignment00/Initial-idea.png" alt="initial idea.">
 
 I've chosen this project since i find it to be an interesting challenge with the knitting mechanism, and I'd like to have some finger traps at hand for some later projects.
 
