@@ -41,5 +41,18 @@ This resulted in a car looking like this: (skipped sketches)
 
 #### Slicing and dicing
 
-I used Bambu studio for slicing the model. The model was sliced by using a layer height of .2 mm and a start height of .2 mm. It printed the model in two steps. The wheels an axles, and the hull.
-This was due to my inexperience with 3d printing, and Starting with the smallest parts was an easy way to test out the functionality of the Bambu P
+I used Bambu studio for slicing the model. The model was sliced by using a layer height of .1 mm and a start height of .2 mm. It printed the model in two steps. The wheels an axles, and the hull.
+This was due to my inexperience with 3d printing, and Starting with the smallest parts was an easy way to test out the functionality of the Bambu P1P printer.
+
+The first models I printed was in the original size specified in the model. This caused problems due to the model not adhering to the print bed correctly, resulting in a failed print. After scaling the model up to 150% size The parts adhered correctly.
+The first batch consisted of the wheels and axles for the car, as seen here:
+
+<img src="images/assignment02/car-wheel-print-attempt-1.JPG" alt="First print of car" class="image"/>
+
+The original diameter of the axle and wheel was not big enough, resulting in the wheel being unable to rotate correctly. This was corrected by increasing the diameter of the hole on the wheel, and decresing the axle's diameter.
+
+I only printed one wheel and axle the second time to test out if the new dimensions would work as expected. This only took about 40 minutes and the results where promising. I forgot to photograph the print process, but here is an image of the final wheel
+
+<img src="images/assignment02/car-wheel-test-print.JPG" alt="The test print of the wheel" class="image" />
+
+The car would take a whopping 14 hours to print. I therefore printed one of the back wheel mounts to test if 
