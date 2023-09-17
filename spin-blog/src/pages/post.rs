@@ -2,6 +2,7 @@ use std::{fmt::format, cell::RefCell, collections::HashMap};
 
 use comrak::{Arena, ComrakOptions, arena_tree::Node, nodes::{Ast, NodeHtmlBlock}};
 use gloo_net::http::Request;
+use log::info;
 use yew::{prelude::*, suspense::{use_future, SuspensionResult, Suspension}};
 
 use crate::{components::{title::Title, paragraph::Paragraph, raw_html::RawHtml}, information};
@@ -45,6 +46,7 @@ pub fn PostsContent(props: &PostProps) -> HtmlResult{
     Ok(html! {
     <>
         <Title title={title}/>
+        <p><a href="#/">{"Back to home."}</a></p>
         {
             parse_markdown(ast)
         }
@@ -232,28 +234,34 @@ fn read_attributes<'a>(source: &'a str) -> (HashMap<&'a str, &'a str>, &'a str){
 
     let mut index = 0;
     let mut reading_attributes = false;
-    for line in source.lines(){
-
+    for line in source.split_inclusive('\n'){
         index += line.len();
-        if line == "---\n"{
+        let line = remove_newline(line);
+        if line == "---"{
             if reading_attributes{
-                println!("Done reading");
                 break;
             }
             else{
-                println!("starting readomg");
                 reading_attributes = true;
                 continue;
             }
         }
         if reading_attributes{
-            if let Some((key, value)) = source.split_once(':'){
+            if let Some((key, value)) = line.split_once(':'){
                 let key = key.trim();
-                let value = value.trim();
+                let value = value.trim().trim_matches('"');
                 attributes.insert(key, value);
             }
         }
     }
 
+    info!("attributes {:?}", attributes);
+
     (attributes, &source[index..])
+}
+
+fn remove_newline<'a>(s: &'a str) -> &'a str{
+    let Some(s) = s.strip_suffix('\n') else {return s;};
+    let Some(s) = s.strip_suffix('\r') else {return  s;};
+    s
 }

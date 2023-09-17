@@ -9,5 +9,7 @@ edition = "2021"
 comrak = "0.18.0"
 gloo-net = "0.4.0"
 gloo-utils = "0.2.0"
+log = "0.4.20"
+wasm-logger = "0.2.0"
 yew = { version = "0.20.0", features = ["csr"] }
 yew-router = "0.17.0"
