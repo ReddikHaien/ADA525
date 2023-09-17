@@ -46,6 +46,7 @@ pub fn PostsContent(props: &PostProps) -> HtmlResult{
     Ok(html! {
     <>
         <Title title={title}/>
+        <p><a href="#/">{"Back to home."}</a></p>
         {
             parse_markdown(ast)
         }
