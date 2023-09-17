@@ -4,8 +4,6 @@ author: "Fredrik Eide Fluge"
 timestamp: "2023-09-01T18:04:00"
 ---
 
-# Assignment 00: Plan and Sketch.
-
 For my semester project I've decided to build a machine for knitting chinese finger traps. 
 
 A chinese finger trap is a toy used to trap a persons fingers. The mechanism behind the trap is the braided design, making it constrict when stretched. To relax the trap again, the ends needs to be pressed together. Even though many people know the finger trap as a toy from their childhood, the toy has many other used due to its unique behaviour. One good example is in orthopedics, where finger traps are used to keep a distal fracture stabil during repair [As seen here](https://www.youtube.com/watch?v=9QFZzajwiqI)
