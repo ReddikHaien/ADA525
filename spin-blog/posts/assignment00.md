@@ -21,7 +21,7 @@ The initial idea for the machine is divided in two:
 The initial idea for the knitting mechanism is to have two rotating rings, one inner and one outer, and a collection of thread feeders. the rings will ocillate forwards and backwards in parallel and move the thread feeders between them. The result should then be that one halv of the thread feeders move clockwise while the other half moved counter clockwise,
 The movement is described as follows:
 
-<img width=500 src="assignment00/Initial-idea.png" alt="initial idea.">
+<img width=500 src="images/assignment00/Initial-idea.png" alt="initial idea.">
 
 I've chosen this project since i find it to be an interesting challenge with the knitting mechanism, and I'd like to have some finger traps at hand for some later projects.
 
