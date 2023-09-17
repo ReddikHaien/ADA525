@@ -51,18 +51,7 @@ fn get_post_names() -> Vec<String>{
 
             out.push(format!("(\"{}\", {})",name, attributes.iter().find(|(k,_)| (*k).eq("title")).map(|(_,n)| n).unwrap()));
             
-            let mut body = String::new();
-
-            body.push_str("# ");
-            body.push_str(&name);
-            body.push('\n');
-
-            for line in lines{
-                body.push_str(line);
-                body.push('\n');
-            }
-
-            let (table, buffer) = compress_string(&body);
+            let (table, buffer) = compress_string(&markdown);
 
             let mut data = String::new();
 
@@ -87,7 +76,7 @@ fn get_post_names() -> Vec<String>{
             }
 
             fs::create_dir_all("./postsrenamed").unwrap();
-            fs::write(format!("./postsrenamed/{}.txt", name), body).unwrap();
+            fs::write(format!("./postsrenamed/{}.txt", name), markdown).unwrap();
         }
     }
     out

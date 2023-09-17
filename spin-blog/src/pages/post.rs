@@ -1,4 +1,4 @@
-use std::{fmt::format, cell::RefCell};
+use std::{fmt::format, cell::RefCell, collections::HashMap};
 
 use comrak::{Arena, ComrakOptions, arena_tree::Node, nodes::{Ast, NodeHtmlBlock}};
 use gloo_net::http::Request;
@@ -28,14 +28,37 @@ pub fn PostsContent(props: &PostProps) -> HtmlResult{
     
     let markdown = use_post(props.id.clone())?;
 
+    let (attributes, body) = read_attributes(&markdown);
+
     let arena = Arena::new();
 
-    let ast = comrak::parse_document(&arena, &markdown, &ComrakOptions::default());
+    let ast = comrak::parse_document(&arena, &body, &ComrakOptions::default());
+
+    let title = if let Some(title) = attributes.get("title"){
+        title.to_string()
+    }
+    else{
+        props.id.to_string()
+    };
+
 
     Ok(html! {
     <>
+        <Title title={title}/>
         {
             parse_markdown(ast)
+        }
+        {
+            if let Some(timestamp) = attributes.get("timestamp"){
+                html!{
+                    <p>{timestamp}</p>
+                }
+            }
+            else{
+                html!{
+                    <></>
+                }
+            }
         }
     </>
     })
@@ -202,4 +225,35 @@ async fn load_post(id: String) -> Result<String, gloo_net::Error>{
     .send().await?
     .text()
     .await
+}
+
+fn read_attributes<'a>(source: &'a str) -> (HashMap<&'a str, &'a str>, &'a str){
+    let mut attributes = HashMap::new();
+
+    let mut index = 0;
+    let mut reading_attributes = false;
+    for line in source.lines(){
+
+        index += line.len();
+        if line == "---\n"{
+            if reading_attributes{
+                println!("Done reading");
+                break;
+            }
+            else{
+                println!("starting readomg");
+                reading_attributes = true;
+                continue;
+            }
+        }
+        if reading_attributes{
+            if let Some((key, value)) = source.split_once(':'){
+                let key = key.trim();
+                let value = value.trim();
+                attributes.insert(key, value);
+            }
+        }
+    }
+
+    (attributes, &source[index..])
 }
