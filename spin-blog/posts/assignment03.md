@@ -41,7 +41,7 @@ To make the remaining sides a made three copies of the side with no extra finger
 
 With the cube complete it looked like this:
 
-<img src="completed-cube.png" class="image">
+<img src="images/assignment03/completed-cube.png" class="image">
 
 It was about now that I realized if forgot to add skerf to my model. This lead to the entire model being redesign to make it easier to add the skerf parameter.
 
@@ -50,6 +50,8 @@ The redesign conisted of doing making the first sketch the same way as before, b
 <img src="images/assignment03/sketch-with-skerf.png" class="image">
 
 When placing the fingers with kerf, it was necessary to figure out the new spacing between them, since this would be affected by the kerf, or so I thought. Since Fusion 360 calculated the distance between two repeated elements as the distance between the same edge on each instance, the distance would remain the same as for the non kerfed finger. This is due to the fact that The width of a finger is f+kerf while the distance between t2o fingers is f-kerf, so if we combine the two we get d = f+kerf + f-kerf = f+f = 2f. Meaning the distance is the same no matter the kerf.
+
+<img src="images/assignment03/space-measurements.png" class="image">
 
 The top and bottom panes where designed similary to before, only this time the kerf was taken into account. This meant that the width of the corner wingers became materialWidth + kerf. and the height the material width. The length of the fingers remained the material width. This is due to the sketch being placed on a plane already offset by the kerf.
 
