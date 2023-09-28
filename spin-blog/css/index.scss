@@ -6,7 +6,8 @@ $h4-size: $h5-size*1.333;
 $h3-size: $h4-size*1.333;
 $h2-size: $h3-size*1.333;
 $h1-size: $h2-size*1.333;
-
+$buttercream: #efe1ce;
+$outline: #a08c83;
 
 html, body{
     margin: 0;
@@ -19,7 +20,7 @@ html, body{
     margin: auto;
     min-height: 100vh;
     height: 100%;
-    background-color: #efe1ce;
+    background-color: $buttercream;
     padding-top: 20px;
 }
 
@@ -42,7 +43,7 @@ html, body{
     width: 90%;
     height: 0.2em;
     margin-left: 5%;
-    background-color: #a08c83;
+    background-color: $outline
 }
 
 .paragraph{
@@ -55,8 +56,29 @@ html, body{
     line-height: 1.5em;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
 
 .image{
     width: 20%;
     margin: auto;
+}
+
+.table tbody tr{
+    border-bottom: 1px solid $outline;
+}
+
+.table tbody tr th,
+.table tbody tr td {
+    border-left: 1px solid $outline;
+}
+
+.table tbody tr:first-child{
+    border-left: none;
+}
+
+.table tbody:last-child{
+    border-bottom: none;
 }

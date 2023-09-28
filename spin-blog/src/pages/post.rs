@@ -1,9 +1,9 @@
 use std::{fmt::format, cell::RefCell, collections::HashMap};
 
-use comrak::{Arena, ComrakOptions, arena_tree::Node, nodes::{Ast, NodeHtmlBlock}};
+use comrak::{Arena, ComrakOptions, arena_tree::Node, nodes::Ast, ComrakExtensionOptions};
 use gloo_net::http::Request;
 use log::info;
-use yew::{prelude::*, suspense::{use_future, SuspensionResult, Suspension}};
+use yew::{prelude::*, suspense::{use_future, SuspensionResult, Suspension}, virtual_dom::VNode};
 
 use crate::{components::{title::Title, paragraph::Paragraph, raw_html::RawHtml}, information};
 
@@ -33,7 +33,16 @@ pub fn PostsContent(props: &PostProps) -> HtmlResult{
 
     let arena = Arena::new();
 
-    let ast = comrak::parse_document(&arena, &body, &ComrakOptions::default());
+    let extension = ComrakExtensionOptions{
+        table: true,
+        strikethrough: true,
+        ..Default::default()
+    };
+
+    let ast = comrak::parse_document(&arena, &body, &ComrakOptions{
+        extension,
+        ..Default::default()
+    });
 
     let title = if let Some(title) = attributes.get("title"){
         title.to_string()
@@ -148,9 +157,37 @@ pub fn parse_markdown<'a>(node: &'a Node<'a, RefCell<Ast>>) -> Html{
                 </Paragraph>
             }
         },
-        comrak::nodes::NodeValue::Table(_) => todo!(),
-        comrak::nodes::NodeValue::TableRow(_) => todo!(),
-        comrak::nodes::NodeValue::TableCell => todo!(),
+        comrak::nodes::NodeValue::Table(t) => {
+            html!{
+                <table class={classes!("table")}>
+                    <tbody>
+                    {for children}
+                    </tbody>
+                </table>
+            }
+        },
+        comrak::nodes::NodeValue::TableRow(header) => {
+            
+            let iter = if *header{
+                Box::new(children.iter().map(|x| html!{
+                    <th>{x.clone()}</th>
+                })) as Box<dyn Iterator<Item = VNode>>
+            }
+            else{
+                Box::new(children.iter().map(|x| html!{
+                    <td>{x.clone()}</td>
+                })) as Box<dyn Iterator<Item = VNode>>
+            };
+
+            html!{
+                <tr>{for iter}</tr>
+            }
+        },
+        comrak::nodes::NodeValue::TableCell => {
+            html!{
+                <>{for children}</>
+            }
+        },
         comrak::nodes::NodeValue::Text(text) => {
             html! {
                 <>{text}</>
