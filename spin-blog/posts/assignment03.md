@@ -51,3 +51,25 @@ The redesign conisted of doing making the first sketch the same way as before, b
 
 When placing the fingers with kerf, it was necessary to figure out the new spacing between them, since this would be affected by the kerf, or so I thought. Since Fusion 360 calculated the distance between two repeated elements as the distance between the same edge on each instance, the distance would remain the same as for the non kerfed finger. This is due to the fact that The width of a finger is f+kerf while the distance between t2o fingers is f-kerf, so if we combine the two we get d = f+kerf + f-kerf = f+f = 2f. Meaning the distance is the same no matter the kerf.
 
+The top and bottom panes where designed similary to before, only this time the kerf was taken into account. This meant that the width of the corner wingers became materialWidth + kerf. and the height the material width. The length of the fingers remained the material width. This is due to the sketch being placed on a plane already offset by the kerf.
+
+<img src="images/assignment03/kerfed-corner-finger.png" class="image"/>
+
+After i was done with resketching, repeating and assembling my cube with kerf included i made a sketch onto the side of my two piece types. On this sketch i used the Projection tool to project the body of the component onto the sketch. This allowed me to only get the outline of the model without the extra lines and figures from the original sketch.
+
+<img src="images/assignment03/projected-sketch-of-side.png" class="image"/>
+<img src="images/assignment03/projected-sketch-of-top.png" class="image"/>
+
+Now that it was time for cutting out the pieces I had to do a slight redesign due to the original model being 4mm material width, while the wood used was only 3 mm, furthermore the skerf at 0.025mm was to small, thereby cutting away to much. These parameters was easy to adjust due to them being parameters in the design. I did adjust the skerf down to 0.01mm, wich in hindsigth was a incorrect decision. The model i made and other people made was different in the way we handled the skerf. For me, to make the model fit I'd to increase the skerf to leave more material. This is due to the model applying the skerf as a boundary around the model instead of using it to cut away material from the result. When we uploaded the sketches to Rihno on the printing computer it was discovered that I had accidentally projected the model twice. This was easily fixed, and is something I'll be more careful with in the future. Before printig the lectured added an projected cube onto one of the faces of the model. Leavin a nice engraving on the box.
+
+The cutting went fine. It took about 10 minutes to cut the entire thing, as specified above I had decreased the skerf when I should hace increased it to a larger value, meaning that the pieces did not stick together, but due to the number of fingers on the model it held together sligthly, something that was fixed by using a little glue.
+
+<img  src="images/assignment03/pieces-fresh-from-oven.jpeg" class="image"/>
+
+When i was done building the box, I realized that i had gone way outside the bounds for the task. I forgot to take into account the material width that appears at the edges, meaning that the box is 106mm wide, over half a centimerer more than than the specified limit. I think I'll be able to better correct for this by making more auxilliary variables that better describe that actual dimensions of the model, while the acutal parameters like box width and finger width only are used as inputs for the auxilliaries. But even though the box is too big, it turned out quite nice:
+
+<img src="images/assignment03/final-product.jpeg" class="image">
+
+In hindsight, I think this technology offers a lot of possibilities in designing and manufacturing the printer. It allows for fast prototyping and for desiging accurate pieces that work together quite nicely. I think that I'm most likely going to use this in my final project, and I'm already planning out how Its all going to fit together. Since assigment01 I've been redoing the idea for the knitting machine. This has been due to unforeseen complications In my design, but know i do think I'm starting to land on a system that might be able to solve the complications that follows this project. Namely how on earth I'm going to make a bunch of spools dance around each other without it breaking. The new Idea is either to use some form of rail system to move a set of carts around, or to try and keep one half of the threads static while the other half goes through and around(more like a traditional weave.). What remains know is to test the traditional weave idea, because i think that might be alot simpler than using train tracks and carts to move everything.
+
+-- Fredrik Eide Fluge
