@@ -170,4 +170,8 @@ After making this prototype I've made myself a few points that I need to fix for
 
 - Repairing the intersections, so that the boat flows freely across
 - Designing the spools that can fit in the machine
-- A better locking mechanism. I'd like to explore
+- A better locking mechanism. I'd like to explore using 3d printed screws for assembling the machine. I think that would be an interesting challenge and make the process of replacing parts easier than hitting it with a hammer.
+- placement for a motor that controls the gears. Ideally it would be nice to have a engine that drives the machine, but If there is time left I'd like to explore on adding a control panel to the machine. I'd imagine it would be a simple on/off button and a speed dial.
+- A mechanism for pulling out the final product. This one is not entirely required as it could possibly just let gravity pull the finished weaved/braided product. But it would be fun to have a spool that collects the final finger trap.
+
+All in all, I'm quite happy with the prototype, even though it did not work perfeclty at all. I think I did locate some errors and find room for improvements that I can bring to the next version of the parts.
