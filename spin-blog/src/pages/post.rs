@@ -122,7 +122,16 @@ pub fn parse_markdown<'a>(node: &'a Node<'a, RefCell<Ast>>) -> Html{
         comrak::nodes::NodeValue::DescriptionItem(_) => todo!(),
         comrak::nodes::NodeValue::DescriptionTerm => todo!(),
         comrak::nodes::NodeValue::DescriptionDetails => todo!(),
-        comrak::nodes::NodeValue::CodeBlock(_) => todo!(),
+        comrak::nodes::NodeValue::CodeBlock(c) => {
+
+            let mapped = c.literal.lines().map(|x|{
+                html!{<> <span>{x}</span> <br/> </>}
+            }).collect::<Vec<_>>();
+
+            html!{
+                <div class={classes!("code")}>{mapped}</div>
+            }
+        }
         comrak::nodes::NodeValue::HtmlBlock(i) => {
             html!{
                 <RawHtml content={i.literal.clone()} inline={false}/>
@@ -198,7 +207,11 @@ pub fn parse_markdown<'a>(node: &'a Node<'a, RefCell<Ast>>) -> Html{
             <>{" "}</>
         },
         comrak::nodes::NodeValue::LineBreak => todo!(),
-        comrak::nodes::NodeValue::Code(_) => todo!(),
+        comrak::nodes::NodeValue::Code(c) => {
+            html!{
+                <span class={classes!("code")}>{c.literal.clone()}</span>
+            }
+        }
         comrak::nodes::NodeValue::HtmlInline(i) => {
             html!{
                 <RawHtml content={i.clone()} inline={true}/>
