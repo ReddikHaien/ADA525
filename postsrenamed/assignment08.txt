@@ -1,5 +1,5 @@
 ---
-title: "Assignment 06: Web server 2"
+title: "Assignment 08: Web server 2"
 author: "Fredrik Eide Fluge"
 timestamp: "2023-11-21T14:52:00"
 ---
@@ -218,6 +218,13 @@ const getImage = () => {
     requestAnimationFrame(getImage);
 }
 ```
+
+Finally a video of the result:
+
+<video controls="controls" width="800" height="600" name="Video Name">
+    <source src="images/assignment08/video.mp4"/>
+</video>
+
 
 # Improvements
 One improvemnt I could see was in the commmunication between the arduino and the server. Currently it's a Fire and hope technique where the server sends the data and waits for a fixed amount of time before continuing. A better approach would be to use a ping-pong technique, where the server Sends the message, and waits for the Arduino to respond with a OK message, thereby allowing the next message to be sent. A benefit of using Ping-Pong would be to increase the speed in wich images are processed, and to prevent overflowing the Serialport buffer.
