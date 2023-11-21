@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .controller{
+            background-color: gray;
+        }
+        canvas{
+            width: 100%;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="controller">
+        <label for="scale">Scale: </label> <input name="scale" id="scale" type="number" value="1"/>
+        <label for="offset_x">OffsetX: </label> <input name="offset_y" id="offset_y" type="number" value="0"/>
+        <label for="offset_y">OffsetY: </label> <input name="offset_x" id="offset_x" type="number" value="0"/>
+        <button id="generate">Generate image</button>
+    </div>
+    <canvas>
+
+    </canvas>
+    <script src="main.js" type="module"></script>
+</body>
+</html>

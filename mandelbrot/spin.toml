@@ -1,0 +1,24 @@
+spin_manifest_version = "1"
+authors = ["ReddikHaien <584969@stud.hvl.no>"]
+description = "Mandelbrot generator"
+name = "mandelbrot"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "generator"
+source = "target/wasm32-wasi/release/generator.wasm"
+allowed_http_hosts = []
+[component.trigger]
+route = "/api/generate"
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+workdir = "generator"
+watch = ["src/**/*.rs", "Cargo.toml"]
+
+[[component]]
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
+id = "frontend"
+files = [ { source = "assets", destination = "/" } ]
+[component.trigger]
+route = "/..."
